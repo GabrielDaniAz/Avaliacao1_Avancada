@@ -32,7 +32,7 @@ public class EnvSimulator extends Thread {
             sumo.runServer(12345); // Inicia o servidor SUMO
 
             // Inicia o timestep do simulador
-            TimestepSumo test = new TimestepSumo(sumo, 10);
+            TimestepSumo test = new TimestepSumo(sumo, 100);
             test.start();
 
             // Inicializa um banco em uma thread separada
@@ -45,6 +45,8 @@ public class EnvSimulator extends Thread {
             Thread companyThread = new Thread(company);
             companyThread.start();
 
+            Thread.sleep(1000);
+
             // Inicializa um posto de gasolina em uma thread separada
             GasStation gasStation = new GasStation();
             Thread gasStationThread = new Thread(gasStation);
@@ -52,7 +54,7 @@ public class EnvSimulator extends Thread {
 
             ArrayList<Thread> threads = new ArrayList<>();
             Random random = new Random();
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < 1; i++) {
                 // Gera um tipo de combustível aleatório
                 int fuelType = random.nextInt(4) + 1;
 

@@ -9,6 +9,5 @@ public class App {
 
         EnvSimulator ev = new EnvSimulator();
         ev.start();
-
     }
 }

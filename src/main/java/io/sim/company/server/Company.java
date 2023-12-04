@@ -27,7 +27,7 @@ public class Company implements Runnable {
 
     public Company() {
         this.availableRoutes = new ArrayList<>();
-        loadRoutesFromXML("data/dadosMap.xml"); // Carrega as rotas do arquivo XML
+        loadRoutesFromXML("map/map.rou.alt.xml"); // Carrega as rotas do arquivo XML
     }
 
     private void loadRoutesFromXML(String xmlFilePath) {
@@ -57,7 +57,8 @@ public class Company implements Runnable {
     public synchronized String[] getRandomRoute() {
         if (!availableRoutes.isEmpty()) {
             int randomIndex = (int) (Math.random() * availableRoutes.size());
-            return availableRoutes.remove(randomIndex);
+            // return availableRoutes.remove(randomIndex);
+            return availableRoutes.get(randomIndex);
         }
         return null;
     }

@@ -106,6 +106,7 @@ public class Driver implements Runnable {
                 Thread gasStationClient = new Thread(new GasStationClient(this, auto.getQuantityToFuel()));
                 gasStationClient.start();
                 gasStationClient.join();
+                Thread.sleep(1500);
                 auto.refuelAuto();
                 bankDocument.transfer(price, "GasStation");
             }
